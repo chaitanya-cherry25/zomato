@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zomato</title>
+    <link rel="icon" href="data:image/jpeg;base64,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">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/zomato.css">
+</head>
+<body>
+
+<section class="container p-4 d-flex justify-content-evenly align-items-center">
+    <div><img class="topicon" src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" alt=""></div>
+
+    <div class=" d-flex p-1 align-items-center justify-content-evenly gap-5 ">
+    <div class="d-flex  align-items-center border-1">
+        <ion-icon class="bg-danger p-2" name="location"></ion-icon>   
+         <select name="" id="" class="form-select location  outline-none">
+        <option value="">visakhapatnam</option>
+        <option value="">Detect your location</option>
+    </select>
+     </div>
+  
+    <div class="outline-none d-flex align-items-center border border-1 ">
+    <ion-icon class=" p-2" name="search-outline"></ion-icon>
+    <input class="border border-0 outline-none search" type="text" placeholder="search for restaurant or dish">
+     </div>
+    </div>
+
+     <div>
+     <button class="button p-2 rounded-pill" type="button"><a class="text-decoration-none text-dark" href="">login</a></button>     
+     </div>
+
+     <div>
+        <button class="button p-2 rounded-pill" type="button"><a class="text-decoration-none text-dark" href="">signup</a></button>     
+    </div>
+
+</section>
+
+
+<section class="container p-1 mt-3 d-flex align-items-center justify-content-start">
+    
+    <div>
+     <img class="w-25" src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png" alt="">
+     <a class="text-decoration-none text-center text-dark" href="">Delivery</a>
+    </div>
+    <div>
+        <img class="w-25" src="https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png" alt="">
+        <a class="text-decoration-none text-center text-dark" href="">Dining Out</a>
+    </div>
+    <div>
+        <img class="w-25" src="https://b.zmtcdn.com/data/o2_assets/01040767e4943c398e38e3592bb1ba8a1616150142.png" alt="">
+        <a class="text-decoration-none text-center text-dark" href="">Night Life</a>
+    </div>
+
+</section>
+
+<section class=" sticky container mt-5 d-flex justify-content-start gap-3 p-2">
+    <div>
+        <button class="btn btn-outline-dark" type="button">filters</button>
+    </div>
+    <div>
+        <button class="btn btn-outline-dark" type="button">Rating 4.0+</button>
+    </div>
+    <div>
+         <button class="btn btn-outline-dark" type="button">pure veg</button>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-outline border border-1 border-dark text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">cuisines</button>
+
+        <div class="dropdown-menu">
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">Andhra</a></div>
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">south Indian</a></div>
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">North Indian</a></div>
+          </div>
+    </div>
+
+
+    <div class="dropdown">
+        <button class="btn border border-1 border-dark text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">More filters</button>
+
+        <div class="dropdown-menu">
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">fast food</a></div>
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">main course</a></div>
+            <div class="dropdown-item"><a class="dropdown-link text-decoration-none text-dark" href="">starters</a></div>
+          </div>
+    </div>
+
+</section>
+
+<section class="container-fluid section3 mt-5 p-5">
+
+    <div class="h1">Inspiration for your first order</div>
+
+<div class="d-flex justify-content-center align-items-center p-5">
+  <div class="d-flex flex-column align-items-center">
+    <img class="w-75" src="https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png" alt="">
+    <a class="text-decoration-none text-dark text fw-bold" href="">biryani</a>
+  </div>
+
+  <div class="d-flex flex-column align-items-center">
+    <img class="w-75" src="https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">chicken</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-75 rounded-pill" src="https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">Fried Rice</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-75 rounded-pill" src="https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">Pizza</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-75 rounded-pill" src="https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">Dosa</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-75" src="https://b.zmtcdn.com/data/dish_images/d9766dd91cd75416f4f65cf286ca84331634805483.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold " href="">idli</a>
+</div>
+
+</div>
+</section>
+
+
+
+<section class="container-fluid  p-5">
+
+    <div class="display-1">Top Brands for you</div>
+
+<div class="d-flex justify-content-center align-items-center p-5">
+  <div class="d-flex flex-column align-items-center">
+    <img class="w-50 rounded-pill" src="https://b.zmtcdn.com/data/brand_creatives/logos/b39fb9a7762ce2a19750d676cf5ffcde_1669619963.png" alt="">
+    <a class="text-decoration-none text-dark text fw-bold" href="">Creme Shakes</a>
+  </div>
+
+  <div class="d-flex flex-column align-items-center">
+    <img class="w-50" src="https://b.zmtcdn.com/data/brand_creatives/logos/87f785743be6f77f341131036dd4eb12_1617898263.png" alt=""> <br>
+    <a class="text-decoration-none text-dark fw-bold" href="">KFC</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-50 rounded-pill" src="https://b.zmtcdn.com/data/brand_creatives/logos/c38f7540bcc5a38e918856ac06409056_1504531339.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">Pizza Hut </a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-50 rounded-pill" src="https://b.zmtcdn.com/data/brand_creatives/logos/6a11fd0f30c9fd9ceaff2f5b21f61d23_1617188514.png" alt=""> 
+    <a class="text-decoration-none text-dark fw-bold" href="">Burger King</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-50 rounded-pill" src="https://b.zmtcdn.com/data/brand_creatives/logos/5caf38856d23347b351bb7abf97134d3_1550060255.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold" href="">Domino's Pizza</a>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <img class="w-50 rounded-pill" src="https://b.zmtcdn.com/data/brand_creatives/logos/9302c59eca94abbee01aec9acf9305f6_1676521267.png" alt="">
+    <a class="text-decoration-none text-dark fw-bold " href="">subway</a>
+</div>
+
+</div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/4/2801544/c3392b0eb37de168e7de51fea38b9808_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Paradise Restaurant</p> 
+            <p>Biryani, North Indian, Chinese</p>
+        </div>
+        <div class="card-footer">
+            8925+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/4/2800014/4eb96d66040a1c63f195ffc46b8eb797_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>KFC</p> 
+            <p>Burger, Fast Food, Biryani, </p>
+        </div>
+        <div class="card-footer">
+            3575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/2/2800012/f68df1eff8d8a400fe90aaf6f7db8487_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Pizza Hut</p> 
+            <p>Pizza, Fast Food, Dessert</p>
+        </div>
+        <div class="card-footer">
+            8925+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/4/2800004/8318a0d945c57c8a40cc2b77bd4b0225_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Dominos pizza</p> 
+            <p>Pizza, Italian, Pasta, Fast Food</p>
+        </div>
+        <div class="card-footer">
+            2325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/0/19548810/550ddd6ec82343c151b5cd9706c635d7_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Golden Alfa Biryani's</p> 
+            <p>Biryani, North Indian </p>
+        </div>
+        <div class="card-footer">
+            575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/3/18793953/dc895c73c75dc0d9fd5743b13e39b865_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>8 - 2 - 8 Chef</p> 
+            <p>Pizza, Fast Food, Dessert</p>
+        </div>
+        <div class="card-footer">
+            1125+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/2/19490442/332b621c77ff3bbd0208f6be86e6457c_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>New Muntaj Biryani</p> 
+            <p>Biryani, Chinese, North Indian</p>
+        </div>
+        <div class="card-footer">
+            9325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/0/19992460/a01ae6733e643acef236e7b7eb1357a4_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Hyderabadi Bawarchi</p> 
+            <p>Biryani, North Indian </p>
+        </div>
+        <div class="card-footer">
+            1575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/7/18895647/85035e6d947136aebbce88f784845ecd_o2_featured_v2.jpg?output-format=webp" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Hotel Diamond Alpha Biryani</p> 
+            <p>Biryani</p>
+        </div>
+        <div class="card-footer">
+            1005+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/0/20000340/fd25f9b6d2dcd490f0c5391fb2e6aae9_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Angel's Dine</p> 
+            <p>Biryani, Chinese, North Indian</p>
+        </div>
+        <div class="card-footer">
+            325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/3/2800143/5ab9641cc803c1cbff33542413b0e5be_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Shree Shyam Restaurant</p> 
+            <p>North Indian </p>
+        </div>
+        <div class="card-footer">
+            1575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/6/20439796/7e0861efc40ab8c2296852ff59037bb3_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Hotel Sri Sai 24/7</p> 
+            <p>Biryani, south india</p>
+        </div>
+        <div class="card-footer">
+            105+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/6/18476566/88ae1b216d6d6365757c44fc9be56680_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Mr. Little Idli</p> 
+            <p>south Indian</p>
+        </div>
+        <div class="card-footer">
+            325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/5/19243675/c32bd42228b68aab98478a671b1ca32c_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>The Biryani Life</p> 
+            <p>North Indian, biryani </p>
+        </div>
+        <div class="card-footer">
+            1575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/0/20388400/e85d557d97161e76f71e34b01b0d8dda_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>The Legendairy Milkshakes</p> 
+            <p>Beverages, Shake</p>
+        </div>
+        <div class="card-footer">
+            1015+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/1/20465171/104bc9734d3bcf58fdcadf7e85321b39_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Cool Cakes</p> 
+            <p>Bakery</p>
+        </div>
+        <div class="card-footer">
+            325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/7/19028547/27016c3e53ab83c04c98286f301dcd6f_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>LUQ Food Plaza</p> 
+            <p>North Indian, biryani </p>
+        </div>
+        <div class="card-footer">
+            1575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/2/2800862/9fc9e719680a423abbe8a9f189975da3_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Cream Stone Ice Cream</p> 
+            <p>Beverages, Shake</p>
+        </div>
+        <div class="card-footer">
+            1015+ orders placed from here recently
+        </div>
+    </div>
+</section>
+
+<section class="container d-flex justify-content-evenly align-items-center mt-4">
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/1/20531311/3dfba4890e6d5f3709e14e6eed07f337_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>RS Cloud Kitchen</p> 
+            <p>Chinese, Seafood, Rolls</p>
+        </div>
+        <div class="card-footer">
+            1325+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/7/19847997/6fc658f13d5c8f42274c54d239549218_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>We Bake Love</p> 
+            <p>Bakery, Desserts </p>
+        </div>
+        <div class="card-footer">
+            575+ orders placed from here recently
+        </div>
+    </div>
+
+
+    <div class="card border border-1 border-dark ">
+        <div class="card-header ">
+            <img class="c1" src="https://b.zmtcdn.com/data/pictures/chains/4/20347874/adf138a25879392d33533f2cba468d55_o2_featured_v2.jpg" alt="">        </div>
+  
+        <div class="card-body">
+            <p>Inavars</p> 
+            <p>Biryani, North Indian</p>
+        </div>
+        <div class="card-footer">
+            105+ orders placed from here recently
+        </div>
+    </div>
+</section>
+<hr>
+
+<section class="container d-flex justify-content-center align-items-center gap-5">
+
+    <div class="fw-bold fs-1">End of search results</div>
+    <div>
+        <img class="w-25" src="https://b.zmtcdn.com/web/assets/search/6d548ba48f0e4e4b46c19ad4b15a3f011615379209.jpeg" alt="">
+    </div>
+</section>
+
+
+<section class="container mt-5">
+    <p class="display-1 fw-bold">Explore options near me</p>
+</section>
+
+
+<section class="container mt-5">
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+              <button class="btn  w-50 p-3 fw-bold text-start" data-bs-target="#accbdy" data-bs-toggle="collapse">Popular cuisines near me</button>
+          </div>
+          </div>
+           
+          <div class="accordion-body">
+            <div class="accordion-item">
+          <p class="text-center fade" id="accbdy">Andhra food near meBakery food near meBeverages food near meBiryani food near meBurger food near meChinese food near meContinental food near meDesserts food near meIce Cream food near meKebab food near meMughlai food near meNorth Indian food near mePizza food near meRolls food near meSandwich food near meSeafood food near meShake food near meSichuan food near meSouth Indian food near meStreet food near me.</p>
+          </div>
+          </div>
+        </div>
+</section>
+
+<section class="container ">
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+              <button class="btn  w-100 p-3 fw-bold text-start" data-bs-target="#accbdy1" data-bs-toggle="collapse">Popular restaurant types near me</button>
+          </div>
+          </div>
+           
+          <div class="accordion-body">
+            <div class="accordion-item">
+          <p class="text-center fade" id="accbdy1">Bakeries near meBars near meBeverage Shops near meBhojanalya near meCafés near meCasual Dining near meDessert Parlors near meDhabas near meFine Dining near meFood Courts near meFood Trucks near meKiosks near meMicrobreweries near meQuick Bites near meSweet Shops near me</p>
+          </div>
+          </div>
+        </div>
+</section>
+
+<section class="container ">
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+              <button class="btn  w-100 p-3 fw-bold text-start" data-bs-target="#accbdy2" data-bs-toggle="collapse">Top Restaurant Chains</button>
+          </div>
+          </div>
+           
+          <div class="accordion-body">
+            <div class="accordion-item">
+          <p class="text-center fade" id="accbdy2">Burger.....King......KFC......McDonald's......Paradise Biryani......Pizza Hut</p>
+          </div>
+          </div>
+        </div>
+</section>
+
+
+<section class="container-fluid p-5 last">
+
+<div class="d-flex justify-content-between align-items-center">
+    <div>
+        <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&crop=198:42;*,*" alt="">
+    </div>
+    <div class="d-flex gap-5">
+        <button class="btn border-1 border-dark" type="button"><img class="w-25 india" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAmVBMVEX/mTMSiAf/////lycAgQAAAIgAAIUAAH4AAIIAAIMAAHwAAHPi4u+kpMvz8/kAAHjn5/Lt7fXd3ey5uddPT6GZmcWDg7n6+v7Ly+HIyOJERJxlZao+PponJ5L29vy0tNbW1uggIJCfn8iGhrsYGJBNTaB2drQQEIx+fripqc5ra62QkMBXV6QiIpFfX6i+vtwyMpw6Opg1NZe0gadDAAAEvUlEQVR4nO3ba3OiSBiG4UzvdDcip8YDiAdQZAIxExP//4/btzHjZH1Nze6HpVPlc1Ul0eiH9g7Q2JKHBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA/+gvuPYg4BqacGjCoQmHJhyacF+hSTI5LFd7uV8tD5PE9WDEF2gSHNbaGyklpVRq5Omfh8D1kBw3qaZ6pCiGVFrr/oYc6SZ3OyinTZIpdZCeevnhNyY1jf/jRXm0vejG6S7kssnObhmeNxMbcTSiEuZIt2aeZ7eancNxOWzy7NFrn3cnI/p9pbTfcmFO3ZxaeVN3A3PWJNrS5lAEmb3d5wgvt7KgoMe2kauhuWoSPdK2QHvIwt5ZpPTtQF/p+S7tVbQNPbqK4qhJRluJ17VGZB3di2yPF/o62AxdJkzbUZRt5mZwjpo0lOTY3wrtFGMPHq/vP5N+JxJHiuLomOKmycyTXinOUewLX1IYSTmW7/cpiSjpOTMno3PSJNA049TnQ4gIae8J6cVrSkWbSNdvJvRITbOPdnJO66RJo1QzM3RjaY8YMhLVVmR+JraViGhzEZn9vZnZp7kYnosmCy31+UR180oH1a4QWWyiODJxJhqajaPTpn80oee5OM130WSlVL3pZ11hJO0daiLWITUJ12KiaM+Spn9ssamVKhyMz0GTVNsDrOi6/o5fiVKLdmVis2qFLkXl27OV/rhCh1mdDj9AB01qmoftnz+Z2ir5+Cjk08JP49RfPElxHNvdpZvao2vhyVE9/AAdNHmkOfZ8ihpK2l4m4y4fJ7ryKp2M8248oe1D7vrHDc3Z++EHOHwTmojlr9tRISciHB/beZ3v87puj+OdmMiV+fUE6WI6Hr5J6amnaFEuzptK6av8GAfrKmzDah3Ex/zR798Iik1e5tGT8srBRzh8k7lSLf1ID9NlWNF5yHLcBuugLd6KNl0H87E9N0m7p+Zgj66tUvPBRzh8k2cl/fNZRzLbxut2kczXaWFXIEdFsG6TfH6KH2fnPSb3pXoefITDN3lVanpZBTDhytd12o6kNWrTg/ZPu8vKYzRV6nXwEQ7fRErvkiSLIpNWeViovokqdnmVmii6LBJE3u8D8mCcNEmqYzhbnqT2/TiOvX37Js/e6q1Hv4l9LX8+H8IyT++mCbaTK1fHkzccTz7OO8Hveafp550mWM/vct6Zn085cH7ywe3z2JTOY9O7PY/F+50b9vS++PyiP3tfPLm398WiHv15/aTs109Wd7N+gnW2G4p/uR6b3c96rMiv1u2bT9btgztat+8/3zmY989xbn6+I+7t8x18DngLPi++YYrrChhcf3IDrlO6IdqOpCpSXM/2D/11j234yXWPwy+bXOD6WO5rXkc9vdvrqAWut78N/5dx08f/3zF/fvr/7is0+WrQhEMTDk04NOHQhHv4DtcevsE1NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMTDk04NOHQhEMT7m/cNifkUwM0UQAAAABJRU5ErkJggg==" alt=""> <a class="text-decoration-none text-dark" href="">INDIA</a></button>
+    <button class="btn border-1 border-dark" type="button"><ion-icon name="globe-outline"></ion-icon>  <a class="text-dark text-decoration-none" href=""> English</a></button>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="d-flex justify-content-evenly align-items-center">
+
+<div>
+    <p class="fw-bold">ABOUT ZOMATO</p>
+    <p>Who We Are</p>
+    <p>Blog</p>
+    <p>Work With Us</p>
+    <p>Investor Relations</p>
+    <p>Report Fraud</p>
+    <p>Contact Us</p>
+</div>
+
+<div>
+    <p class="fw-bold">ZOMAVERSE</p>
+    <p>Zomato</p>
+    <p>Blinkit</p>
+    <p>Feeding India</p>
+    <p>Hyperpure</p>
+    <p>Zomaland</p>
+</div>
+
+<div>
+
+    <p class="fw-bold">For Restauranta</p>
+    <p>Partner with us</p>
+    <p>Apps For You</p>
+    <br>
+    <p class="fw-bold">For Enterprises</p>
+    <p>Zomato for enterprises</p>
+</div>
+
+<div>
+    <p class="fw-bold">Learn More</p>
+    <p>Privacy</p>
+    <p>Security</p>
+    <p>Terms</p>
+    <p>SiteMaps</p>
+</div>
+
+<div>
+    <p class="fw-bold">social links</p>
+    <span><ion-icon name="logo-linkedin"></ion-icon></span>
+    <span><ion-icon name="logo-facebook"></ion-icon></span>
+    <span><ion-icon name="logo-youtube"></ion-icon></span>
+    <span><ion-icon name="logo-youtube"></ion-icon></span>
+</div>
+
+</div>
+
+
+</section>
+
+
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>  
+
+</html>

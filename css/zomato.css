@@ -1,0 +1,44 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vw;
+    position: relative;
+}
+.topicon{
+    width: 10rem;
+}
+.location{
+    width: 15rem;
+}
+.search{
+    width: 15rem;
+}
+.section3{
+    background-color: aliceblue;
+}
+.ccc{
+    width: 20rem;
+    height: 10rem;
+}
+.india{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+.last{
+    background-color: rgb(225, 225, 225);
+}
+
+.c1{
+    height: 15rem;
+    width: 20rem;
+}
+.sticky{
+ position:absolute;   
+ position: sticky;
+}
